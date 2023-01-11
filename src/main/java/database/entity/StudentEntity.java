@@ -17,13 +17,13 @@ public class StudentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Id_Studenta")
-    private long id;
+    private Long id;
     @Column(name="Imie")
     private String name;
     @Column(name = "Nazwisko")
     private String surname;
     @Column(name = "Saldo")
-    private float saldo;
+    private float balance;
     private String PESEL;
     @Column(name = "Numer_Telefonu")
     private Integer phoneNumber;
