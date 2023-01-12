@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Uczelnia</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+</head>
+
+<body>
+    <header>
+        <h1>Uczelnia</h1>
+        <img src="/images/logo.png" alt="Uczelnia Logo" class="logo">
+    </header>
+
+    <nav>
+        <ul class="nav nav-pills">
+            <li><a href="/index">Strona główna</a></li>
+            <li><a href="/student/showList" class="active">Studenci</a></li>
+            <li><a href="">Grupy</a></li>
+            <li><a href="">Przedmioty</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Lista studentów</h2>
+
+        <table class="table table-hover align-content-center">
+            <tr>
+                <th>Id studenta</th>
+                <th>Imie</th>
+                <th>Nazwisko</th>
+                <th>Saldo</th>
+                <th>PESEL</th>
+                <th>Numer telefonu</th>
+                <th>Email</th>
+                <th>Akcje</th>
+            </tr>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Jan</td>
+                    <td>Kowalski</td>
+                    <td>0.00</td>
+                    <td>90121287659</td>
+                    <td>563625896</td>
+                    <td>jan.kowalski@example.com</td>
+                    <td class="text-center">
+                        <a href="" class="btn btn-info m-lg-1 w-25">Szczegóły</a>
+                        <a href="" class="btn btn-warning m-lg-1 w-25">Edytuj</a>
+                        <a href="" class="btn btn-danger m-lg-1 w-25">Usuń</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Marek</td>
+                    <td>Aureliusz</td>
+                    <td>22.99</td>
+                    <td>91101247009</td>
+                    <td>501620832</td>
+                    <td>Marek.Aureliusz@example.com</td>
+                    <td class="text-center">
+                        <a href="" class="btn btn-info m-lg-1 w-25">Szczegóły</a>
+                        <a href="" class="btn btn-warning m-lg-1 w-25">Edytuj</a>
+                        <a href="" class="btn btn-danger m-lg-1 w-25">Usuń</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Mateusz</td>
+                    <td>Kaplica</td>
+                    <td>666.99</td>
+                    <td>85110949549</td>
+                    <td>631629032</td>
+                    <td>Mateusz.Kaplica@example.com</td>
+                    <td class="text-center">
+                        <a href="" class="btn btn-info m-lg-1 w-25">Szczegóły</a>
+                        <a href="" class="btn btn-warning m-lg-1 w-25">Edytuj</a>
+                        <a href="" class="btn btn-danger m-lg-1 w-25">Usuń</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><a href="form.html" class="btn btn-success">Dodaj nowego studenta</a></p>
+
+    </main>
+
+    <footer>
+        Juliusz, Korczewski, s20658
+    </footer>
+</body>
+
+</html>
