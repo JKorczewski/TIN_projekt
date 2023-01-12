@@ -1,4 +1,4 @@
-package database.entity.groupSubject;
+package com.example.tin_projekt.database.entity.groupSubject;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

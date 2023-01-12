@@ -1,7 +1,6 @@
 package com.example.tin_projekt;
 
-import database.dao.StudentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.tin_projekt.database.dao.StudentRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

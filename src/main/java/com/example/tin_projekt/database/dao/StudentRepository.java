@@ -1,6 +1,6 @@
-package database.dao;
+package com.example.tin_projekt.database.dao;
 
-import database.entity.StudentEntity;
+import com.example.tin_projekt.database.entity.StudentEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

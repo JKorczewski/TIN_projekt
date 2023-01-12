@@ -3,7 +3,7 @@ package com.example.tin_projekt;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = {"database"})
+@SpringBootApplication
 public class TinProjectApplication {
 
     public static void main(String[] args) {

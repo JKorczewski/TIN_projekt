@@ -1,4 +1,4 @@
-package database.entity;
+package com.example.tin_projekt.database.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

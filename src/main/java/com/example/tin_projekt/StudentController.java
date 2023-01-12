@@ -1,6 +1,6 @@
 package com.example.tin_projekt;
 
-import database.dao.StudentRepository;
+import com.example.tin_projekt.database.dao.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +15,8 @@ public class StudentController {
     private StudentRepository studentRepository;
 
     @GetMapping("/showList")
-    public String showForm(Model model){
-
+    public String showList(Model model){
         model.addAttribute("students", studentRepository.findAll());
-
-        return "list";
+        return "pages/student/list";
     }
 }
