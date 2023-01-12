@@ -29,4 +29,8 @@ public class StudentEntity {
     private Integer phoneNumber;
     @Column(name = "Email")
     private String email;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Id_Grupy", referencedColumnName = "Id_Grupy")
+    private GroupEntity group;
 }

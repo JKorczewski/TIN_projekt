@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Setter
 @Getter
@@ -22,4 +24,7 @@ public class GroupEntity {
     private Integer groupNumber;
     @Column(name = "Opiekun")
     private String attendant;
+
+    @OneToMany(mappedBy = "group", fetch = FetchType.LAZY)
+    private List<StudentEntity> students;
 }
