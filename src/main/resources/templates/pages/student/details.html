@@ -28,10 +28,7 @@
     </nav>
 
     <main>
-        <div th:switch="${students}">
-            <h2 th:case="null">No users yet!</h2>
-            <div th:case="*">
-                <h2>Lista studentów</h2>
+                <h2>Szczegóły studenta</h2>
 
                 <table class="table table-hover align-content-center">
                     <tr>
@@ -42,10 +39,11 @@
                         <th>PESEL</th>
                         <th>Numer telefonu</th>
                         <th>Email</th>
-                        <th>Akcje</th>
+                        <th>Numer Grupy</th>
+                        <th>Opiekun</th>
                     </tr>
                     <tbody>
-                        <tr th:each="student : ${students}">
+                        <tr th:object="${student}">
                             <td th:text="${student.id}"></td>
                             <td th:text="${student.name}"></td>
                             <td th:text="${student.surname}"></td>
@@ -53,18 +51,13 @@
                             <td th:text="${student.PESEL}"></td>
                             <td th:text="${student.phoneNumber}"></td>
                             <td th:text="${student.email}"></td>
-                            <td class="text-center">
-                                <a th:href="@{/student/details/{id}(id=${student.id})}" class="btn btn-info m-lg-1 w-25">Szczegóły</a>
-                                <a th:href="@{/student/edit/{id}(id=${student.id})}" class="btn btn-warning m-lg-1 w-25">Edytuj</a>
-                                <a th:href="@{/student/delete/{id}(id=${student.id})}" class="btn btn-danger m-lg-1 w-25">Usuń</a>
-                            </td>
+                            <td th:text="${student.group.groupNumber}"></td>
+                            <td th:text="${student.group.attendant}"></td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
 
-        <p><a href="/student/form" class="btn btn-success">Dodaj nowego studenta</a></p>
+        <p><a href="/student/showList" class="btn btn-success">Powrót do listy</a></p>
 
     </main>
 
