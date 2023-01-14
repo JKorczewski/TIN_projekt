@@ -1,17 +1,15 @@
 package com.example.tin_projekt.database.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Student")
+@ToString
+@Table(schema = "myDB", name = "Student")
 public class StudentEntity {
 
     @Id
@@ -33,4 +31,14 @@ public class StudentEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Id_Grupy", referencedColumnName = "Id_Grupy")
     private GroupEntity group;
+
+    public StudentEntity(String name, String surname, float balance, String PESEL, Integer phoneNumber, String email, GroupEntity group) {
+        this.name = name;
+        this.surname = surname;
+        this.balance = balance;
+        this.PESEL = PESEL;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.group = group;
+    }
 }

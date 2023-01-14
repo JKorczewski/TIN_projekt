@@ -27,4 +27,9 @@ public class GroupEntity {
 
     @OneToMany(mappedBy = "group", fetch = FetchType.LAZY)
     private List<StudentEntity> students;
+
+    public GroupEntity(Integer groupNumber, String attendant) {
+        this.groupNumber = groupNumber;
+        this.attendant = attendant;
+    }
 }

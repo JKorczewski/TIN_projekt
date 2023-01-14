@@ -1,6 +1,8 @@
 package com.example.tin_projekt;
 
+import com.example.tin_projekt.database.dao.GroupRepository;
 import com.example.tin_projekt.database.dao.StudentRepository;
+import com.example.tin_projekt.database.entity.GroupEntity;
 import com.example.tin_projekt.database.entity.StudentEntity;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Collection;
+import java.util.Optional;
+
 @Controller
 @RequestMapping("/student")
 public class StudentController {
@@ -19,14 +24,21 @@ public class StudentController {
     @Autowired
     private StudentRepository studentRepository;
 
+    @Autowired
+    private GroupRepository groupRepository;
+
     @GetMapping("/showList")
     public String showList(Model model){
-        model.addAttribute("students", studentRepository.findAll());
+        model.addAttribute(
+                "students", studentRepository.findAll());
+
         return "pages/student/list";
     }
 
     @GetMapping("/form")
-    public String showSignUpForm(StudentEntity student) {
+    public String showSignUpForm(Model model) {
+        model.addAttribute("student", new StudentEntity());
+        model.addAttribute("groups", groupRepository.findAll());
         return "pages/student/form";
     }
 
@@ -37,7 +49,10 @@ public class StudentController {
         }
 
         studentRepository.save(student);
-        return "redirect:/index";
+
+        model.addAttribute("students", studentRepository.findAll());
+
+        return "pages/student/list";
     }
 
     @GetMapping("/edit/{id}")
@@ -66,6 +81,6 @@ public class StudentController {
         StudentEntity student = studentRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid student Id:" + id));
         studentRepository.delete(student);
-        return "redirect:/index";
+        return "redirect:/student/showList";
     }
 }

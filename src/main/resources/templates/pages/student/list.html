@@ -28,92 +28,43 @@
     </nav>
 
     <main>
-        <h2>Lista studentów</h2>
-
-        <table class="table table-hover align-content-center">
-            <tr>
-                <th>Id studenta</th>
-                <th>Imie</th>
-                <th>Nazwisko</th>
-                <th>Saldo</th>
-                <th>PESEL</th>
-                <th>Numer telefonu</th>
-                <th>Email</th>
-                <th>Akcje</th>
-            </tr>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Jan</td>
-                    <td>Kowalski</td>
-                    <td>0.00</td>
-                    <td>90121287659</td>
-                    <td>563625896</td>
-                    <td>jan.kowalski@example.com</td>
-                    <td class="text-center">
-                        <a href="" class="btn btn-info m-lg-1 w-25">Szczegóły</a>
-                        <a href="" class="btn btn-warning m-lg-1 w-25">Edytuj</a>
-                        <a href="" class="btn btn-danger m-lg-1 w-25">Usuń</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Marek</td>
-                    <td>Aureliusz</td>
-                    <td>22.99</td>
-                    <td>91101247009</td>
-                    <td>501620832</td>
-                    <td>Marek.Aureliusz@example.com</td>
-                    <td class="text-center">
-                        <a href="" class="btn btn-info m-lg-1 w-25">Szczegóły</a>
-                        <a href="" class="btn btn-warning m-lg-1 w-25">Edytuj</a>
-                        <a href="" class="btn btn-danger m-lg-1 w-25">Usuń</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Mateusz</td>
-                    <td>Kaplica</td>
-                    <td>666.99</td>
-                    <td>85110949549</td>
-                    <td>631629032</td>
-                    <td>Mateusz.Kaplica@example.com</td>
-                    <td class="text-center">
-                        <a href="" class="btn btn-info m-lg-1 w-25">Szczegóły</a>
-                        <a href="" class="btn btn-warning m-lg-1 w-25">Edytuj</a>
-                        <a href="" class="btn btn-danger m-lg-1 w-25">Usuń</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
         <div th:switch="${students}">
             <h2 th:case="null">No users yet!</h2>
             <div th:case="*">
-                <h2>Users</h2>
-                <table>
-                    <thead>
+                <h2>Lista studentów</h2>
+
+                <table class="table table-hover align-content-center">
                     <tr>
-                        <th>Name</th>
+                        <th>Id studenta</th>
+                        <th>Imie</th>
+                        <th>Nazwisko</th>
+                        <th>Saldo</th>
+                        <th>PESEL</th>
+                        <th>Numer telefonu</th>
                         <th>Email</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Akcje</th>
                     </tr>
-                    </thead>
                     <tbody>
-                    <tr th:each="student : ${students}">
-                        <td th:text="${student.name}"></td>
-                        <td th:text="${student.email}"></td>
-                        <td><a th:href="@{/edit/{id}(id=${student.id})}">Edit</a></td>
-                        <td><a th:href="@{/delete/{id}(id=${student.id})}">Delete</a></td>
-                    </tr>
+                        <tr th:each="student : ${students}">
+                            <td th:text="${student.id}"></td>
+                            <td th:text="${student.name}"></td>
+                            <td th:text="${student.surname}"></td>
+                            <td th:text="${student.balance}"></td>
+                            <td th:text="${student.PESEL}"></td>
+                            <td th:text="${student.phoneNumber}"></td>
+                            <td th:text="${student.email}"></td>
+                            <td class="text-center">
+                                <!--<a th:href="" class="btn btn-info m-lg-1 w-25">Szczegóły</a>-->
+                                <a th:href="@{/student/edit/{id}(id=${student.id})}" class="btn btn-warning m-lg-1 w-25">Edytuj</a>
+                                <a th:href="@{/student/delete/{id}(id=${student.id})}" class="btn btn-danger m-lg-1 w-25">Usuń</a>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-            <p><a href="/signup">Add a new user</a></p>
         </div>
 
-        <p><a href="student/form" class="btn btn-success">Dodaj nowego studenta</a></p>
+        <p><a href="/student/form" class="btn btn-success">Dodaj nowego studenta</a></p>
 
     </main>
 
@@ -123,3 +74,5 @@
 </body>
 
 </html>
+
+
