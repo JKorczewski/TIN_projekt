@@ -45,6 +45,8 @@ public class StudentController {
     @PostMapping("/add")
     public String addUser(@Valid StudentEntity student, BindingResult result, Model model) {
         if (result.hasErrors()) {
+            System.out.println("\nJakiś błąd /update/{id}");
+            System.out.println(result.getAllErrors());
             return "pages/student/form";
         }
 
@@ -52,7 +54,7 @@ public class StudentController {
 
         model.addAttribute("students", studentRepository.findAll());
 
-        return "pages/student/list";
+        return "redirect:/student/showList";
     }
 
     @GetMapping("/edit/{id}")
@@ -61,19 +63,27 @@ public class StudentController {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid student Id:" + id));
 
         model.addAttribute("student", student);
-        return "update";
+        model.addAttribute("groups", groupRepository.findAll());
+
+        return "pages/student/form-edit";
     }
 
     @PostMapping("/update/{id}")
     public String updateUser(@PathVariable("id") long id, @Valid StudentEntity student,
                              BindingResult result, Model model) {
+
         if (result.hasErrors()) {
+            System.out.println("\nJakiś błąd /update/{id}");
+            System.out.println(result.getAllErrors());
             student.setId(id);
-            return "update";
+            return "pages/student/update";
         }
 
         studentRepository.save(student);
-        return "redirect:/index";
+
+        model.addAttribute("students", studentRepository.findAll());
+
+        return "redirect:/student/showList";
     }
 
     @GetMapping("/delete/{id}")

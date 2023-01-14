@@ -28,7 +28,7 @@ public class StudentEntity {
     @Column(name = "Email")
     private String email;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "Id_Grupy", referencedColumnName = "Id_Grupy")
     private GroupEntity group;
 

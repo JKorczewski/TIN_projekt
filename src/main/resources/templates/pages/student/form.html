@@ -74,9 +74,9 @@
 
         <div class="mb-3">
             <label for="email">Grupa: *</label>
-            <select id="dropDownList" class="form-select">
-                <option selected>Wybierz numer grupy</option>
-                <option th:each="group : ${groups}" th:value="${group}" th:text="${group.groupNumber}"></option>
+            <select class="form-select" th:field="*{group}" name="group" id="group" placeholder="Group">
+                <!--<option selected>Wybierz numer grupy</option>-->
+                <option th:each="group : ${groups}" th:value="${group.id}" th:text="${group.groupNumber}"></option>
             </select>
             <span th:if="${#fields.hasErrors('group')}" th:errors="*{group}"></span>
         </div>
