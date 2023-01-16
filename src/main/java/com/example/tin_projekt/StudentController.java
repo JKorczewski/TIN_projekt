@@ -83,7 +83,7 @@ public class StudentController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteUser(@PathVariable("id") long id, Model model) {
+    public String deleteStudent(@PathVariable("id") long id, Model model) {
         StudentEntity student = studentRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid student Id:" + id));
         studentRepository.delete(student);
