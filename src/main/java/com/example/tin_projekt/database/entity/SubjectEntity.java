@@ -1,10 +1,13 @@
 package com.example.tin_projekt.database.entity;
 
+import com.example.tin_projekt.database.entity.groupSubject.GroupSubjectEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Set;
 
 @Entity
 @Setter
@@ -23,4 +26,11 @@ public class SubjectEntity {
     @Column(name = "Skrot")
     private String abbreviation;
 
+    @OneToMany(mappedBy = "subject", fetch = FetchType.LAZY)
+    private Set<GroupSubjectEntity> groupSubjectSet;
+
+    public SubjectEntity(String subjectName, String abbreviation) {
+        this.subjectName = subjectName;
+        this.abbreviation = abbreviation;
+    }
 }

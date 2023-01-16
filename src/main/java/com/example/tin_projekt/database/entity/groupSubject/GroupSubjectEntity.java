@@ -1,9 +1,9 @@
 package com.example.tin_projekt.database.entity.groupSubject;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.example.tin_projekt.database.entity.GroupEntity;
+import com.example.tin_projekt.database.entity.StudentEntity;
+import com.example.tin_projekt.database.entity.SubjectEntity;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,5 +24,14 @@ public class GroupSubjectEntity {
     @Column(name = "Godzina")
     private String hour;
 
+    @ManyToOne
+    @MapsId("id")
+    @JoinColumn(name = "id_grupy")
+    GroupEntity group;
+
+    @ManyToOne
+    @MapsId("id")
+    @JoinColumn(name = "id_przedmiotu")
+    SubjectEntity subject;
 
 }
