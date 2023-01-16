@@ -1,4 +1,4 @@
-package com.example.tin_projekt;
+package com.example.tin_projekt.controllers;
 
 import com.example.tin_projekt.database.dao.GroupRepository;
 import com.example.tin_projekt.database.dao.StudentRepository;

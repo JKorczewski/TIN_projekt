@@ -1,4 +1,4 @@
-package com.example.tin_projekt;
+package com.example.tin_projekt.controllers;
 
 import com.example.tin_projekt.database.dao.StudentRepository;
 import org.springframework.stereotype.Controller;

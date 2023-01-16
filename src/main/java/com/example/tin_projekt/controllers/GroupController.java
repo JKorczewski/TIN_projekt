@@ -1,8 +1,7 @@
-package com.example.tin_projekt;
+package com.example.tin_projekt.controllers;
 
 import com.example.tin_projekt.database.dao.GroupRepository;
 import com.example.tin_projekt.database.entity.GroupEntity;
-import com.example.tin_projekt.database.entity.StudentEntity;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +24,7 @@ public class GroupController {
         model.addAttribute(
                 "groups", groupRepository.findAll());
 
-        return "pages/student/list";
+        return "pages/group/list";
     }
 
     @GetMapping("/form")
