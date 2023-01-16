@@ -21,43 +21,63 @@
     <nav>
         <ul class="nav nav-pills">
             <li><a href="/index">Strona główna</a></li>
-            <li><a href="/student/showList" class="active">Studenci</a></li>
-            <li><a href="/group/showList">Grupy</a></li>
+            <li><a href="/student/showList" >Studenci</a></li>
+            <li><a href="/group/showList" class="active">Grupy</a></li>
             <li><a href="">Przedmioty</a></li>
         </ul>
     </nav>
 
     <main>
-                <h2>Szczegóły studenta</h2>
+        <h2>Szczegóły grupy</h2>
 
-                <table class="table table-hover align-content-center">
-                    <tr>
-                        <th>Id studenta</th>
-                        <th>Imie</th>
-                        <th>Nazwisko</th>
-                        <th>Saldo</th>
-                        <th>PESEL</th>
-                        <th>Numer telefonu</th>
-                        <th>Email</th>
-                        <th>Numer Grupy</th>
-                        <th>Opiekun</th>
-                    </tr>
-                    <tbody>
-                        <tr th:object="${student}">
-                            <td th:text="${student.id}"></td>
-                            <td th:text="${student.name}"></td>
-                            <td th:text="${student.surname}"></td>
-                            <td th:text="${student.balance}"></td>
-                            <td th:text="${student.PESEL}"></td>
-                            <td th:text="${student.phoneNumber}"></td>
-                            <td th:text="${student.email}"></td>
-                            <td th:text="${student.group.groupNumber}"></td>
-                            <td th:text="${student.group.attendant}"></td>
-                        </tr>
-                    </tbody>
-                </table>
+        <table class="table table-hover align-content-center">
+            <tr>
+                <th>Id grupy</th>
+                <th>Opiekun</th>
+                <th>Numer grupy</th>
+            </tr>
+            <tbody>
+                <tr th:object="${group}">
+                    <td th:text="${group.id}"></td>
+                    <td th:text="${group.attendant}"></td>
+                    <td th:text="${group.groupNumber}"></td>
+                </tr>
+            </tbody>
+        </table>
 
-        <p><a href="/student/showList" class="btn btn-success">Powrót do listy</a></p>
+        <br>
+        <h2>Studenci w grupie</h2>
+
+        <table class="table table-hover align-content-center">
+            <tr>
+                <th>Id studenta</th>
+                <th>Imie</th>
+                <th>Nazwisko</th>
+                <th>Saldo</th>
+                <th>PESEL</th>
+                <th>Numer telefonu</th>
+                <th>Email</th>
+                <th>Akcje</th>
+            </tr>
+            <tbody>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.id}"></td>
+                <td th:text="${student.name}"></td>
+                <td th:text="${student.surname}"></td>
+                <td th:text="${student.balance}"></td>
+                <td th:text="${student.PESEL}"></td>
+                <td th:text="${student.phoneNumber}"></td>
+                <td th:text="${student.email}"></td>
+                <td class="text-center">
+                    <a th:href="@{/student/details/{id}(id=${student.id})}" class="btn btn-info m-lg-1 w-25">Szczegóły</a>
+                    <a th:href="@{/student/edit/{id}(id=${student.id})}" class="btn btn-warning m-lg-1 w-25">Edytuj</a>
+                    <a th:href="@{/student/delete/{id}(id=${student.id})}" class="btn btn-danger m-lg-1 w-25">Usuń</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p><a href="/group/showList" class="btn btn-success">Powrót do listy</a></p>
 
     </main>
 

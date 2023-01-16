@@ -1,6 +1,7 @@
 package com.example.tin_projekt.controllers;
 
 import com.example.tin_projekt.database.dao.GroupRepository;
+import com.example.tin_projekt.database.dao.StudentRepository;
 import com.example.tin_projekt.database.entity.GroupEntity;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class GroupController {
 
     @Autowired
     private GroupRepository groupRepository;
+
+    @Autowired
+    private StudentRepository studentRepository;
 
     @GetMapping("/showList")
     public String showList(Model model){
@@ -90,6 +94,7 @@ public class GroupController {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid group Id:" + id));
 
         model.addAttribute("group", group);
+        model.addAttribute("students", studentRepository.findAllStudentsBelongToGroup(group));
 
         return "pages/group/details";
     }
