@@ -29,7 +29,7 @@ public class GroupController {
 
     @GetMapping("/form")
     public String showSignUpForm(Model model) {
-        model.addAttribute("groups", groupRepository.findAll());
+        model.addAttribute("group", new GroupEntity());
         return "pages/group/form";
     }
 

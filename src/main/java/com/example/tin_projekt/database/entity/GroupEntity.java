@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Setter
@@ -28,10 +27,10 @@ public class GroupEntity {
     private String attendant;
 
     @OneToMany(mappedBy = "group", fetch = FetchType.LAZY)
-    private List<StudentEntity> students;
+    private List<StudentEntity> studentList;
 
     @OneToMany(mappedBy = "group", fetch = FetchType.LAZY)
-    private Set<GroupSubjectEntity> groupSubjectSet;
+    private List<GroupSubjectEntity> groupSubjectList;
 
     public GroupEntity(Integer groupNumber, String attendant) {
         this.groupNumber = groupNumber;

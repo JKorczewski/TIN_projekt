@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -27,7 +28,7 @@ public class SubjectEntity {
     private String abbreviation;
 
     @OneToMany(mappedBy = "subject", fetch = FetchType.LAZY)
-    private Set<GroupSubjectEntity> groupSubjectSet;
+    private List<GroupSubjectEntity> groupSubjectList;
 
     public SubjectEntity(String subjectName, String abbreviation) {
         this.subjectName = subjectName;
