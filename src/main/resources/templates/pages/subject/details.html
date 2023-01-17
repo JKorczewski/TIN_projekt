@@ -28,23 +28,22 @@
     </nav>
 
     <main>
-                <h2>Szczegóły przedmiotu</h2>
+        <h2>Szczegóły przedmiotu</h2>
 
-                <table class="table table-hover align-content-center">
-                    <tr>
-                        <th>Id przedmiotu</th>
-                        <th>Nazwa przedmiotu</th>
-                        <th>Skrót</th>
-                        <th>Akcje</th>
-                    </tr>
-                    <tbody>
-                    <tr th:each="subject : ${subjects}">
-                        <td th:text="${subject.id}"></td>
-                        <td th:text="${subject.subjectName}"></td>
-                        <td th:text="${subject.abbreviation}"></td>
-                    </tr>
-                    </tbody>
-                </table>
+        <table class="table table-hover align-content-center">
+            <tr>
+                <th>Id przedmiotu</th>
+                <th>Nazwa przedmiotu</th>
+                <th>Skrót</th>
+            </tr>
+            <tbody>
+            <tr th:object="${subjects}">
+                <td th:text="${subject.id}"></td>
+                <td th:text="${subject.subjectName}"></td>
+                <td th:text="${subject.abbreviation}"></td>
+            </tr>
+            </tbody>
+        </table>
 
         <p><a href="/subject/showList" class="btn btn-success">Powrót do listy</a></p>
 

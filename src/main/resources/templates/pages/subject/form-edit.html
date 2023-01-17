@@ -32,9 +32,9 @@
 
     <form action="#" th:action="@{/subject/update/{id}(id=${subject.id})}" th:object="${subject}" method="post">
       <div class="mb-3">
-        <label for="name">Nazwa przedmiotu: *</label>
-        <input type="text" th:field="*{name}" name="name" placeholder="Name" class="form-control" id="name" required>
-        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        <label for="subjectName">Nazwa przedmiotu: *</label>
+        <input type="text" th:field="*{subjectName}" name="subjectName" placeholder="subjectName" class="form-control" id="subjectName" required>
+        <span th:if="${#fields.hasErrors('subjectName')}" th:errors="*{subjectName}"></span>
       </div>
 
       <div class="mb-3">
@@ -46,7 +46,7 @@
 
       <div class="text-center">
         <p id="errorSummary"></p>
-        <input class="btn btn-success w-12 center" type="submit" value="Dodaj"/>
+        <input class="btn btn-success w-12 center" type="submit" value="Edytuj"/>
         <a class="btn btn-danger w-12" href="/subject/showList">Anuluj</a>
       </div>
     </form>
