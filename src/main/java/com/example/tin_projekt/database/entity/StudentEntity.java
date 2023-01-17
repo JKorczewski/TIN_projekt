@@ -24,7 +24,7 @@ public class StudentEntity {
     private float balance;
     private String PESEL;
     @Column(name = "Numer_Telefonu")
-    private Integer phoneNumber;
+    private String phoneNumber;
     @Column(name = "Email")
     private String email;
 
@@ -32,7 +32,7 @@ public class StudentEntity {
     @JoinColumn(name = "Id_Grupy", referencedColumnName = "Id_Grupy")
     private GroupEntity group;
 
-    public StudentEntity(String name, String surname, float balance, String PESEL, Integer phoneNumber, String email, GroupEntity group) {
+    public StudentEntity(String name, String surname, float balance, String PESEL, String phoneNumber, String email, GroupEntity group) {
         this.name = name;
         this.surname = surname;
         this.balance = balance;
