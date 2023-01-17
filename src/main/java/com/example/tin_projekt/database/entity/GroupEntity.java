@@ -2,6 +2,9 @@ package com.example.tin_projekt.database.entity;
 
 import com.example.tin_projekt.database.entity.groupSubject.GroupSubjectEntity;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,8 +24,11 @@ public class GroupEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Id_Grupy")
     private Long id;
+    @NotNull
     @Column(name = "Numer_Grupy")
     private Integer groupNumber;
+    @NotNull
+    //@Max(value = 30, message = "Max value = 30")
     @Column(name = "Opiekun")
     private String attendant;
 
