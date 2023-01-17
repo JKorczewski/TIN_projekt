@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl-PL" xmlns:th="http://thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Uczelnia</title>
+
+  <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="/css/style.css" rel="stylesheet"/>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+</head>
+
+<body>
+  <header>
+    <h1>Uczelnia</h1>
+    <img src="/images/logo.png" alt="Uczelnia Logo" class="logo">
+  </header>
+
+  <nav>
+    <ul class="nav nav-pills">
+      <li><a href="/index">Strona główna</a></li>
+      <li><a href="/student/showList" >Studenci</a></li>
+      <li><a href="/group/showList" >Grupy</a></li>
+      <li><a href="/subject/showList" class="active">Przedmioty</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Edycja przedmiotu</h2>
+
+    <form action="#" th:action="@{/subject/update/{id}(id=${subject.id})}" th:object="${subject}" method="post">
+      <div class="mb-3">
+        <label for="name">Nazwa przedmiotu: *</label>
+        <input type="text" th:field="*{name}" name="name" placeholder="Name" class="form-control" id="name" required>
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+      </div>
+
+      <div class="mb-3">
+        <label for="abbreviation">Skrót: *</label>
+        <input type="text" th:field="*{abbreviation}" placeholder="Abbreviation" class="form-control" name="abbreviation"
+               id="abbreviation" required>
+        <span th:if="${#fields.hasErrors('abbreviation')}" th:errors="*{abbreviation}"></span>
+      </div>
+
+      <div class="text-center">
+        <p id="errorSummary"></p>
+        <input class="btn btn-success w-12 center" type="submit" value="Dodaj"/>
+        <a class="btn btn-danger w-12" href="/subject/showList">Anuluj</a>
+      </div>
+    </form>
+
+
+  </main>
+
+  <footer>
+    Juliusz, Korczewski, s20658
+  </footer>
+</body>
+
+</html>

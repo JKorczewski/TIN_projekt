@@ -22,8 +22,8 @@
         <ul class="nav nav-pills">
             <li><a href="/index">Strona główna</a></li>
             <li><a href="/student/showList" class="active">Studenci</a></li>
-            <li><a href="/group/showList">Grupy</a></li>
-            <li><a href="">Przedmioty</a></li>
+            <li><a href="/group/showList" >Grupy</a></li>
+            <li><a href="/subject/showList">Przedmioty</a></li>
         </ul>
     </nav>
 
@@ -41,14 +41,14 @@
                 <label for="lastName">Nazwisko: *</label>
                 <input type="text" th:field="*{surname}" placeholder="Surname" class="form-control" name="lastName"
                        id="lastName" required>
-                <span th:if="${#fields.hasErrors('surname')}" th:errors="*{name}"></span>
+                <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></span>
             </div>
 
             <div class="mb-3">
                 <label for="balance">Saldo: *</label>
                 <input type="number" th:field="*{balance}" placeholder="Balance" class="form-control" name="balance"
                        id="balance" required>
-                <span th:if="${#fields.hasErrors('surname')}" th:errors="*{balance}"></span>
+                <span th:if="${#fields.hasErrors('balance')}" th:errors="*{balance}"></span>
             </div>
 
             <div class="mb-3">
@@ -60,7 +60,7 @@
 
             <div class="mb-3">
                 <label for="phoneNumber">Numer telefonu:</label>
-                <input type="number" th:field="*{phoneNumber}" placeholder="PhoneNumber" class="form-control" maxlength="9"
+                <input type="text" th:field="*{phoneNumber}" placeholder="PhoneNumber" class="form-control" maxlength="9"
                        minlength="9" name="phoneNumber" id="phoneNumber">
                 <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></span>
             </div>

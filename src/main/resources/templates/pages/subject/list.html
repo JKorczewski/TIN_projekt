@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Uczelnia</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+</head>
+
+<body>
+    <header>
+        <h1>Uczelnia</h1>
+        <img src="/images/logo.png" alt="Uczelnia Logo" class="logo">
+    </header>
+
+    <nav>
+        <ul class="nav nav-pills">
+            <li><a href="/index">Strona główna</a></li>
+            <li><a href="/student/showList" >Studenci</a></li>
+            <li><a href="/group/showList" >Grupy</a></li>
+            <li><a href="/subject/showList" class="active">Przedmioty</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div th:switch="${subjects}">
+            <h2 th:case="null">No subject yet!</h2>
+            <div th:case="*">
+                <h2>Lista przedmiotów</h2>
+
+                <table class="table table-hover align-content-center">
+                    <tr>
+                        <th>Id przedmiotu</th>
+                        <th>Nazwa przedmiotu</th>
+                        <th>Skrót</th>
+                        <th>Akcje</th>
+                    </tr>
+                    <tbody>
+                        <tr th:each="subject : ${subjects}">
+                            <td th:text="${subject.id}"></td>
+                            <td th:text="${subject.subjectName}"></td>
+                            <td th:text="${subject.abbreviation}"></td>
+                            <td class="text-center">
+                                <a th:href="@{/subject/details/{id}(id=${subject.id})}" class="btn btn-info m-lg-1 w-25">Szczegóły</a>
+                                <a th:href="@{/subject/edit/{id}(id=${subject.id})}" class="btn btn-warning m-lg-1 w-25">Edytuj</a>
+                                <a th:href="@{/subject/delete/{id}(id=${subject.id})}" class="btn btn-danger m-lg-1 w-25">Usuń</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <p><a href="/subject/form" class="btn btn-success">Dodaj nowy przedmiot</a></p>
+
+    </main>
+
+    <footer>
+        Juliusz, Korczewski, s20658
+    </footer>
+</body>
+
+</html>
+
+
