@@ -41,7 +41,7 @@ public class StudentController {
     @PostMapping("/add")
     public String addStudent(@Valid StudentEntity student, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            System.out.println("\nJakiś błąd /update/{id}");
+            //System.out.println("\nJakiś błąd /update/{id}");
             System.out.println(result.getAllErrors());
             return "pages/student/form";
         }

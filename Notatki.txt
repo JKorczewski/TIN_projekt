@@ -1,0 +1,2 @@
+Obsługa wyjątków. Błędny powrót do formularza
+zmienić wszelakie nazewnictwo na angielski
